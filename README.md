@@ -35,7 +35,7 @@ Basically, if a fetch request is made, the resource being accessed must approve 
   2. To make a **post** request, we must include a second argument in the fetch, which allows us to make the customizations we need to successfully post, including the new cocktail data we'd like to add to our API. This second argument, also known as the init object, has many different customizations. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch">MDN</a> for a full list. Here are the options we are applying to our cocktail request:
 
     - Method is the type of request we are making. In this case, it's a post request, since we're sending data from a form to create a new cocktail in the backend.
-    - Headers, which should be an object. ******
+    - Headers should be an object. Here, 'content' is the type of data being sent from frontend to our api, which in this case is json. 'Accept' specifies the media type that we accept to be returned on a successful response. 
     - Body is a stringified version of an object. The object has been formatted to have the name of our new resource, cocktail, pointing to another object, which contains the cocktail's name and description.
 
     fetch('http://localhost:3000/api/v1/cocktails', {
@@ -61,4 +61,4 @@ This fetch request will return a promise. (And a successful response!) From ther
       .then(data => console.log(data))
     }
 ```
-Of course, for this fetch request to work, we must grab the cocktail params in our API, create a new cocktail, and in this case, we're rendering json of the freshly crafted cocktail! 
+Of course, for this fetch request to work, we must grab the cocktail params in our API, create a new cocktail, and in this case, we're rendering json of the freshly crafted cocktail!
