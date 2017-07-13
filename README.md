@@ -63,4 +63,6 @@ This fetch request will return a promise. (And a successful response!) From ther
 ```
 Of course, for this fetch request to work, our Rails API must be set up to create a new cocktail when it receives a post request to '/cocktails.' We must grab the cocktail params in our API, create a new cocktail, and in this case, we're rendering json of the freshly crafted cocktail!
 
+<img src='/public/successful_post.png' />
+
 
