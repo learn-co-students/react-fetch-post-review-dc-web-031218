@@ -1,4 +1,4 @@
-# React Review - Using Fetch to Post and Using CORS
+# React Review - Using Fetch to Post (and also, what is CORS again?)
 
   Let's use the cocktail API from the React Boozer lab to practice making a post request from a React app, and to review how the CORS set up in the API allows us to make this post.
 
@@ -35,7 +35,7 @@ Basically, if a fetch request is made, the resource being accessed must approve 
   2. To make a **post** request, we must include a second argument in the fetch, which allows us to make the customizations we need to successfully post, including the new cocktail data we'd like to add to our API. This second argument, also known as the init object, has many different customizations. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch">MDN</a> for a full list. Here are the options we are applying to our cocktail request:
 
     - Method is the type of request we are making. In this case, it's a post request, since we're sending data from a form to create a new cocktail in the backend.
-    - Headers should be an object. Here, 'content' is the type of data being sent from frontend to our api, which in this case is json. 'Accept' specifies the media type that we accept to be returned on a successful response. 
+    - Headers should be an object. Here, 'content' is the type of data being sent from frontend to our api, which in this case is json. 'Accept' specifies the media type that we accept to be returned on a successful response.
     - Body is a stringified version of an object. The object has been formatted to have the name of our new resource, cocktail, pointing to another object, which contains the cocktail's name and description.
 
     fetch('http://localhost:3000/api/v1/cocktails', {
