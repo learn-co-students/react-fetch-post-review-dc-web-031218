@@ -10,8 +10,8 @@
 
   This is enabled in the API's cors.rb file:
 
-  ```
-  Rails.application.config.middleware.insert_before 0, Rack::Cors do
+```
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
 
@@ -37,29 +37,29 @@ Basically, if a fetch request is made, the resource being accessed must approve 
     - Method is the type of request we are making. In this case, it's a post request, since we're sending data from a form to create a new cocktail in the backend.
     - Headers should be an object. Here, 'content' is the type of data being sent from frontend to our api, which in this case is json. 'Accept' specifies the media type that we accept to be returned on a successful response.
     - Body is a stringified version of an object. The object has been formatted to have the name of our new resource, cocktail, pointing to another object, which contains the cocktail's name and description.
-
-    fetch('http://localhost:3000/api/v1/cocktails', {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify( {cocktail: this.state} )
-      })
+```javascript
+fetch('http://localhost:3000/api/v1/cocktails', {
+  method: "POST",
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify( {cocktail: this.state} )
+})
+```
 
 This fetch request will return a promise. (And a successful response!) From there we can parse json from our response data and access our key/value pairs just like we are using a normal JavaScript object.
-```
-    fetch('http://localhost:3000/api/v1/cocktails', {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify( {cocktail: this.state} )
-      })
-      .then(res => res.json())
-      .then(data => console.log(data))
-    }
+```javascript
+fetch('http://localhost:3000/api/v1/cocktails', {
+  method: "POST",
+  headers: {
+    'Accept': 'application/json, text/plain, */*',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify( {cocktail: this.state} )
+})
+.then(res => res.json())
+.then(data => console.log(data))
 ```
 Of course, for this fetch request to work, our Rails API must be set up to create a new cocktail when it receives a post request to '/cocktails.' We must grab the cocktail params in our API, create a new cocktail, and in this case, we're rendering json of the freshly crafted cocktail!
 
