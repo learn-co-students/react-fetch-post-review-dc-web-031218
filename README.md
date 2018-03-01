@@ -10,7 +10,7 @@
 
   This is enabled in the API's cors.rb file:
 
-```
+```ruby
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
@@ -28,7 +28,7 @@ Basically, if a fetch request is made, the resource being accessed must approve 
 
   1. A get or post fetch request always contains the argument of a path of the resource to fetch.
 
-  ```
+  ```javascript
   fetch('http://localhost:3000/api/v1/cocktails')
   ```
 
